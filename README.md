@@ -1,63 +1,102 @@
-# node-# 09 Node.js Challenge: Professional README Generator
+# 10 Object-oriented Programming: SVG Logo Maker
 
 ## Your Task
 
-When creating an open source project on GitHub, it’s important to have a high-quality README for the app. This should include what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions&mdash;this last part increases the likelihood that other developers will contribute to the success of the project. 
+Your task is to build a Node.js command-line application that takes in user input to generate a logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file.
 
-You can quickly and easily create a README file by using a command-line application to generate one. This allows the project creator to devote more time to working on the project.
+Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
 
-Your task is to create a command-line application that dynamically generates a professional README.md file from a user's input using the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4). Review the [Professional README Guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide) as a reminder of everything that a high-quality, professional README should contain. 
+Refer to the [Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) on the Full-Stack Blog for additional guidance on creating a video.
 
-The application will be invoked by using the following command:
-
-```bash
-node index.js
-```
-
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality. Revisit the Screencastify Tutorial in the prework as a refresher on how to record video from your computer. You’ll need to submit a link to the video _and_ add it to the README of your project.
-
-
-## User Story
+> **Note**: There is no starter code for this assignment.
+### User Story
 
 ```md
-AS A developer
-I WANT a README generator
-SO THAT I can quickly create a professional README for a new project
+AS a freelance web developer
+I WANT to generate a simple logo for my projects
+SO THAT I don't have to pay a graphic designer
 ```
 
 ## Acceptance Criteria
 
 ```md
 GIVEN a command-line application that accepts user input
-WHEN I am prompted for information about my application repository
-THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-WHEN I enter my project title
-THEN this is displayed as the title of the README
-WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-WHEN I choose a license for my application from a list of options
-THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-WHEN I enter my GitHub username
-THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-WHEN I enter my email address
-THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-WHEN I click on the links in the Table of Contents
-THEN I am taken to the corresponding section of the README
+WHEN I am prompted for text
+THEN I can enter up to three characters
+WHEN I am prompted for the text color
+THEN I can enter a color keyword (OR a hexadecimal number)
+WHEN I am prompted for a shape
+THEN I am presented with a list of shapes to choose from: circle, triangle, and square
+WHEN I am prompted for the shape's color
+THEN I can enter a color keyword (OR a hexadecimal number)
+WHEN I have entered input for all the prompts
+THEN an SVG file is created named `logo.svg`
+AND the output text "Generated logo.svg" is printed in the command line
+WHEN I open the `logo.svg` file in a browser
+THEN I am shown a 300x200 pixel image that matches the criteria I entered
 ```
 
-## Getting Started
+## Mock-Up
 
-Here are some guidelines to help you get started:
+The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
 
-* Create a `.gitignore` file and include `node_modules/` and `.DS_Store/` so that your `node_modules` directory isn't tracked or uploaded to GitHub. Be sure to create your `.gitignore` file before installing any npm dependencies.
+![Image showing a green circle with white text that reads "SVG.".](./Images/10-oop-homework-demo.png)
 
-* Make sure that your repo includes a `package.json` with the required dependencies. You can create one by running `npm init` when you first set up the project, before installing any dependencies.
+## Additional Requirements
 
-* Include a video of the typical user flow through your application. This includes views of the prompts and the responses after their selection.
+This Challenge combines many of the skills covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help you get started.
 
-* Refer to the [Fullstack Blog Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
+Because this Challenge requires a video submission, refer to the [Full-Stack Blog video submission guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for guidance on creating and sharing a video.
 
-* Include any other screenshots you deem necessary to help someone who has never been introduced to your application understand the purpose and function of it. This is how you will communicate to potential employers or other developers in the future what you built and why, and to show how it works.
+Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
+
+```bash
+node index.js
+```
+
+It is recommended that you start with a directory structure that looks like the following example:
+
+```md
+.  
+├── examples/           // Example svg file(s) created with the app
+├── lib/                // Folder for classes or functions
+    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
+    ├── shapes.test.js  // Jest tests for shapes
+    └── more...         // Additional files and tests
+├── .gitignore          // Indicates which folders and files Git should ignore
+├── index.js            // Runs the application using imports from lib/
+├── package.json
+└── README.md           // App description, link to video, setup and usage instructions           
+```
+
+> **Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
+The application must include `Triangle`, `Circle`, and `Square` classes, as well as tests for each of these classes using Jest. While not a requirement, it is recommended that you place any common functionality and properties shared by the `Triangle`, `Circle`, and `Square` classes in a parent `Shape` class and use inheritance to reuse the code in the child classes.
+
+Each shape class should be tested for a `render()` method that returns a string for the corresponding SVG file with the given shape color.
+
+The following example test should pass:
+
+```js
+const shape = new Triangle();
+shape.setColor("blue");
+expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
+```
+
+You may need to add additional files in the `lib` folder for handling user input, writing to a file, etc. Writing tests for these additional files is **optional**.
+
+## Helpful SVG Resources
+
+* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
+
+* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
+
+* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
+
+* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
+
+* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
+
+* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
 
 ## Grading Requirements
 
@@ -70,30 +109,37 @@ Here are some guidelines to help you get started:
 > * A repository that includes only a README file but nothing else
 >
 > * A repository that only includes starter code
+This Challenge is graded based on the following criteria:
 
-This Challenge is graded based on the following criteria: 
+### Deliverables: 15%
 
-### Deliverables: 20%
-
-* A sample README generated using the application must be submitted.
+* At least one sample SVG file generated using the application must be submitted.
 
 * Your GitHub repository containing your application code.
 
-### Walkthrough Video: 27%
+### Walkthrough Video: 32%
 
-* A walkthrough video that demonstrates the functionality of the README generator must be submitted, and a link to the video should be included in your README file.
+* A walkthrough video that demonstrates the functionality of the SVG logo maker and passing tests must be submitted.
+
+* The `README.md` file must include a link to the walkthrough video.
+
+* The walkthrough video must show all tests passing from the command line.
 
 * The walkthrough video must demonstrate how a user would invoke the application from the command line.
 
 * The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
 
-* The walkthrough video must demonstrate a generated README that matches the user input and has a functioning table of contents.
+* The walkthrough video must demonstrate a generated SVG file, showing the file being opened in the browser. The image in the browser must reflect the choices made by the user (text, shape, and colors).
 
 ### Technical Acceptance Criteria: 40%
 
-* Satisfies all of the above acceptance criteria plus the following:
+* Satisfies all of the preceding acceptance criteria plus the following:
 
-	* Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
+  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
+
+  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
+
+  * The application must have `Triangle`, `Square`, and `Circle` classes.
 
 ### Repository Quality: 13%
 
@@ -105,30 +151,17 @@ This Challenge is graded based on the following criteria:
 
 * Repository contains multiple descriptive commit messages.
 
-* Repository contains a high-quality README with description and a link to walkthrough video.
-
+* Repository contains a high-quality readme with description and a link to a walkthrough video.
 
 ## Review
 
 You are required to submit the following for review:
 
-* A walkthrough video demonstrating the functionality of the application.
+* A walkthrough video that demonstrates the functionality of the application and passing tests.
 
-* A sample README.md file for a project repository generated using your application
+* At least one sample SVG file generated using your application.
 
-* The URL of the GitHub repository, with a unique name and a README describing the project
+* The URL of the GitHub repository, with a unique name and a README describing the project.
 
 ---
-
-
-this is how the files should look .  
-├── examples/           // Example svg file(s) created with the app
-├── lib/                // Folder for classes or functions
-    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
-    ├── shapes.test.js  // Jest tests for shapes
-    └── more...         // Additional files and tests
-├── .gitignore          // Indicates which folders and files Git should ignore
-├── index.js            // Runs the application using imports from lib/
-├── package.json
-└── README.md           // App description, link to video, setup and usage instructions           
-```
+© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
