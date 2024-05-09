@@ -1,20 +1,5 @@
-// inquirer
-//   .prompt([
-//     {
-//       type: 'input',
-//       message: 'What text would you like to log?',
-//       name: 'text',
-//     },
-//     {
-//       type: 'list',
-//       message: 'What color would you like to use?',
-//       name: 'color',
-//       choices: ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta'],
-//     },
-//   ])
-//   .then((response) => console.log(colors[response.color](response.text)));
 
-
+const colors = require('colors')
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { Circle, Triangle, Square } = require('./lib/shapes');
