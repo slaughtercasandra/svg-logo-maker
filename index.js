@@ -48,7 +48,7 @@ const writeToFile = (data) => {
 };
 
 // Main function
-const main = async () => {
+const svg = async () => {
     try {
         const userInput = await promptUser();
         let shape;
@@ -68,7 +68,8 @@ const main = async () => {
         shape.setColor(userInput.shapeColor);
         const svg = `<svg width="300" height="200">
                         ${shape.render()}
-                        <text x="10" y="20" fill="${userInput.textColor}">${userInput.text}</text>
+    
+                        <text font-size="40px" x="100" y="100" fill="${userInput.textColor}">${userInput.text}</text>
                     </svg>`;
 
         // Writing SVG to file
@@ -77,4 +78,4 @@ const main = async () => {
         console.error('Error:', error);
     }
 };
-main(); 
+svg(); 
