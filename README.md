@@ -2,6 +2,8 @@ SVG logo maker
 
 Overview
 This project is a command-line tool for generating SVG logos. Users can customize the text, text color, and shape of the logo. Supported shapes include Circle, Triangle, and Square. The tool utilizes Node.js and inquirer for user interaction and SVG rendering.
+<iframe src="https://drive.google.com/file/d/1gsiChtxCFYYq82WMBLYeS6VR5PdrILj1/preview" width="640" height="480"></iframe>
+https://app.screencastify.com/v2/manage/videos/08GNAPucKrkDF0P3xbiy
 
 Installation
 Clone this repository to your local machine.
